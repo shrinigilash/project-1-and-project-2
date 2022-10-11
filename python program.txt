@@ -1,0 +1,88 @@
+import time
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+#"s=Servic"("D:\\chromedriver\\chromedriver.exe")
+#driver =webdriver.Chrome(service=s)
+#driver.maximize_window()
+driver = webdriver.Chrome(executable_path="D:\\chromedriver\\chromedriver.exe")
+driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+driver.maximize_window()
+time.sleep(7)
+
+#login
+
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input').send_keys("Admin")
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input').send_keys("admin123")
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button').click()
+
+
+# create new employee
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button').click()
+time.sleep(4)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[1]/div[2]/input').send_keys("Raman")
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[3]/div[2]/input').send_keys("jayam")
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]').click()
+
+
+# admin
+time .sleep(7)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a/span').click()
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button').click()
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[2]/i').click()
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]').click()
+time.sleep(3)
+
+Admin ='/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]'
+driver.find_element(By.XPATH,Admin).click()
+driver.find_element(By.XPATH,Admin).send_keys(Keys.DOWN,Keys.ENTER)
+time.sleep(2)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input').send_keys("Raman")
+time.sleep(3)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input').send_keys(Keys.DOWN,Keys.TAB)
+time.sleep(5)
+Enabled ='/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div/div[1]'
+driver.find_element(By.XPATH,Enabled).click()
+driver.find_element(By.XPATH,Enabled).send_keys(Keys.DOWN,Keys.ENTER)
+time.sleep(3)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input').send_keys("Jayam")
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input').send_keys("Raman")
+time.sleep(3)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input').send_keys(Keys.DOWN,Keys.TAB)
+time.sleep(5)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input').send_keys("Ramajayam#123")
+time.sleep(5)
+Save= driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]')
+Save.click()
+
+#search user
+Admin = driver.find_element(By.XPATH,'/html/body/div/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a')
+Admin.click()
+driver.find_element('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input').send_keys("Jayam")
+Admin ='/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]'
+driver.find_element(By.XPATH,Admin).click()
+driver.find_element(By.XPATH,Admin).send_keys(Keys.DOWN,Keys.ENTER)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input').send_keys("Raman")
+time.sleep(3)
+driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input').send_keys(Keys.DOWN,Keys.TAB)
+time.sleep(5)
+Enabled ='/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]/div/div/div[1]'
+driver.find_element(By.XPATH, Enabled).click()
+driver.find_element(By.XPATH,Enabled).send_keys(Keys.DOWN,Keys.ENTER)
+Search = driver.find_element(By.XPATH,"//div[@class='oxd-form-actions']")
+Search.click()
+driver.find_element(By.XPATH,'/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').click()
+time.sleep(5)
+
+logout = '//*[@id="app"]/div[1]/div[1]/header/div[1]/div[2]/ul/li/span'
+logout1 = '/html/body/div/div[1]/div[1]/header/div[1]/div[2]/ul/li/ul/li[4]/a'
+driver.find_element(By.XPATH, logout).click()
+driver.find_element(By.XPATH,logout1).send_keys(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.ENTER)
+driver.find_element(By.XPATH,"/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input").send_keys("Jayam")
+driver.find_element(By.XPATH,"/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input").send_keys("Ramanjayam#123")
+time.sleep(3)
+driver.find_element(By.XPATH,"/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button").click()
+
